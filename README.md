@@ -8,3 +8,7 @@ Steps to build website on EC2 using Git hub Action.
 6) Deploy image on Docker Registory
 7) Run Docker Container to deploy website.
     sudo docker run -d -p 5000:80 jaypatel132/504finalexam:v1.0
+
+
+Website url - http://ec2-35-175-198-25.compute-1.amazonaws.com/
+Dockerhub repo - https://hub.docker.com/repository/docker/jaypatel132/504finalexam/general
