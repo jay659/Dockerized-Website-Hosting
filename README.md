@@ -1,14 +1,39 @@
-# 504jayfinalexam
-Steps to build website on EC2 using Git hub Action.
-1) Create Github Repository
-2) make workflow file and write .yml code to build web server and add static flles  in /var/www/html folder
-3) Create Docker file in same directory where all files are exist.
-4)Install docker on EC2
-5) Build Docker Image
-6) Deploy image on Docker Registory
-7) Run Docker Container to deploy website.
-    sudo docker run -d -p 5000:80 jaypatel132/504finalexam:v1.0
+# 🚀 EC2 Static Website Deployment with GitHub Actions + Docker
+
+This project demonstrates how to **automatically build and deploy a static website** on an **AWS EC2 instance** using **GitHub Actions** and **Docker**. When you push code to GitHub, the CI/CD workflow builds a Docker image, pushes it to Docker Hub, and runs it on your EC2 instance to serve your website.
+
+---
+
+## 📦 Stack Used
+
+- 🐳 Docker
+- 🖥️ AWS EC2 (Ubuntu)
+- 🔁 GitHub Actions
+- 🌐 NGINX or Apache (inside container)
+
+---
+
+## 🔄 Workflow Overview
+
+### Step 1: Create GitHub Repository
+
+Push your static files (`index.html`, `css`, etc.) and Dockerfile to a new GitHub repository.
+
+### Step 2: Add GitHub Actions Workflow
+
+In `.github/workflows/deploy.yml`, define a GitHub Action that:
+
+- Builds the Docker image
+- Pushes it to Docker Hub
+- SSHs into the EC2 instance
+- Pulls and runs the container
+
+### Step 3: Create Dockerfile
+
+Sample Dockerfile:
+
+```Dockerfile
+FROM nginx:latest
+COPY . /usr/share/nginx/html
 
 
-Website url - http://ec2-35-175-198-25.compute-1.amazonaws.com/
-Dockerhub repo - https://hub.docker.com/repository/docker/jaypatel132/504finalexam/general
